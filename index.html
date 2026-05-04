@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AASHA - Vision Document 2026-27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #f8fbff;
+      --muted: rgba(248, 251, 255, 0.72);
+      --soft: rgba(248, 251, 255, 0.54);
+      --line: rgba(255, 255, 255, 0.22);
+      --line-strong: rgba(255, 255, 255, 0.34);
+      --glass: rgba(255, 255, 255, 0.14);
+      --glass-light: rgba(255, 255, 255, 0.22);
+      --glass-dark: rgba(6, 17, 35, 0.46);
+      --blue: #11233f;
+      --blue-2: #1e4b68;
+      --mint: #a8e6d1;
+      --gold: #ffd48a;
+      --rose: #ff9c92;
+      --paper: #eef4f7;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #101115;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, #12131a 0%, #202027 48%, #101115 100%);
+      font-family: "Space Grotesk", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    .document {
+      width: min(430px, 100vw);
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    .page {
+      position: relative;
+      width: 430px;
+      height: 932px;
+      margin: 0 auto 24px;
+      overflow: hidden;
+      background: #132034;
+      box-shadow: 0 26px 90px rgba(0, 0, 0, 0.52);
+      isolation: isolate;
+    }
+
+    .bg,
+    .bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .bg {
+      z-index: -3;
+      overflow: hidden;
+    }
+
+    .bg img {
+      object-fit: cover;
+      filter: saturate(0.92) contrast(1.05);
+    }
+
+    .blur-bg img {
+      transform: scale(1.12);
+      filter: blur(18px) saturate(1.08) contrast(1.1);
+    }
+
+    .veil {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(180deg, rgba(8, 20, 38, 0.18), rgba(8, 20, 38, 0.82)),
+        linear-gradient(130deg, rgba(10, 34, 54, 0.76), rgba(66, 86, 91, 0.18) 48%, rgba(10, 18, 34, 0.86));
+    }
+
+    .mesh {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.5;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 88%);
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--line);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 18px 50px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(22px) saturate(1.35);
+      -webkit-backdrop-filter: blur(22px) saturate(1.35);
+    }
+
+    .glass.dark {
+      background: var(--glass-dark);
+    }
+
+    .label {
+      font-size: 9.5px;
+      line-height: 1.3;
+      letter-spacing: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .serif {
+      font-family: "Instrument Serif", serif;
+    }
+
+    .page-no {
+      position: absolute;
+      right: 28px;
+      bottom: 24px;
+      z-index: 5;
+      color: rgba(248, 251, 255, 0.52);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .top-pill {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      top: 26px;
+      z-index: 3;
+      min-height: 48px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: rgba(248, 251, 255, 0.82);
+    }
+
+    .dot-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #0d2239;
+      background: linear-gradient(135deg, var(--gold), var(--mint));
+      font-family: "Instrument Serif", serif;
+      font-size: 19px;
+      flex: 0 0 auto;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 96px 26px 30px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 18px;
+    }
+
+    .hero-panel {
+      align-self: end;
+      border-radius: 30px;
+      padding: 26px 24px 24px;
+    }
+
+    .hero-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .hero-label::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1 {
+      font-family: "Instrument Serif", serif;
+      font-size: 76px;
+      line-height: 0.84;
+      font-weight: 400;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--mint);
+      font-style: italic;
+    }
+
+    .cover-copy {
+      margin-top: 22px;
+      width: 310px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.62;
+    }
+
+    .hero-chips {
+      display: flex;
+      gap: 8px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      display: inline-flex;
+      min-height: 30px;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 999px;
+      color: rgba(248, 251, 255, 0.84);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    .cover-footer {
+      border-radius: 24px;
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .name {
+      margin-top: 4px;
+      font-family: "Instrument Serif", serif;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .mini-stat {
+      text-align: right;
+      color: var(--soft);
+    }
+
+    .mini-stat strong {
+      display: block;
+      color: var(--mint);
+      font-family: "Instrument Serif", serif;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 0.95;
+    }
+
+    .cover-v2 {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 28px 26px 30px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 18px;
+    }
+
+    .cover-nav-v2 {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .cover-logo-card {
+      min-height: 78px;
+      border-radius: 26px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .cover-logo-card b {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 4px;
+      border-radius: 50%;
+      color: #0d2239;
+      background: linear-gradient(135deg, var(--gold), var(--mint));
+      font-family: "Instrument Serif", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .cover-logo-card span {
+      color: rgba(248, 251, 255, 0.78);
+      font-size: 8.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .cover-year-card {
+      min-height: 78px;
+      border-radius: 26px;
+      padding: 16px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .cover-year-card strong {
+      color: var(--gold);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .cover-title-zone {
+      align-self: center;
+      padding-top: 40px;
+    }
+
+    .cover-title-zone .hero-label {
+      margin-bottom: 16px;
+    }
+
+    .cover-title-zone h1 {
+      font-size: 85px;
+      line-height: 0.78;
+      text-shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
+    }
+
+    .cover-title-zone h1 .outline {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.25px rgba(248, 251, 255, 0.82);
+      font-style: normal;
+    }
+
+    .cover-title-zone h1 em {
+      display: block;
+      color: var(--mint);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .cover-lede-panel {
+      width: 286px;
+      margin: 24px 0 0 auto;
+      border-radius: 24px;
+      padding: 16px 17px;
+      color: rgba(248, 251, 255, 0.8);
+      font-size: 12.7px;
+      line-height: 1.58;
+    }
+
+    .cover-bottom-v2 {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 10px;
+    }
+
+    .cover-meta-card {
+      min-height: 86px;
+      border-radius: 24px;
+      padding: 15px;
+      display: grid;
+      align-content: end;
+    }
+
+    .cover-meta-card strong {
+      display: block;
+      margin-top: 5px;
+      font-family: "Instrument Serif", serif;
+      font-size: 25px;
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .cover-meta-card span {
+      color: var(--soft);
+    }
+
+    .cover-meta-card.accent {
+      align-content: space-between;
+    }
+
+    .cover-meta-card.accent b {
+      display: block;
+      color: var(--mint);
+      font-family: "Instrument Serif", serif;
+      font-size: 42px;
+      line-height: 0.85;
+      font-weight: 400;
+    }
+
+    .manifesto {
+      background: #0d2239;
+    }
+
+    .manifesto .veil {
+      background:
+        linear-gradient(180deg, rgba(13, 34, 57, 0.52), rgba(13, 34, 57, 0.88)),
+        linear-gradient(135deg, rgba(9, 32, 47, 0.78), rgba(124, 73, 82, 0.36), rgba(18, 49, 64, 0.82));
+    }
+
+    .manifesto-wrap {
+      height: 100%;
+      padding: 84px 26px 24px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 10px;
+    }
+
+    .section-title {
+      border-radius: 28px;
+      padding: 18px 20px 17px;
+    }
+
+    .section-title .label {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: "Instrument Serif", serif;
+      font-size: 50px;
+      line-height: 0.92;
+      font-weight: 400;
+    }
+
+    h2 em {
+      color: var(--mint);
+      font-style: italic;
+    }
+
+    .manifesto h2 {
+      font-size: 44px;
+    }
+
+    .manifesto-body {
+      border-radius: 28px;
+      padding: 18px;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 13px;
+    }
+
+    .quote {
+      font-family: "Instrument Serif", serif;
+      font-size: 27px;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .quote::before {
+      content: '"';
+      display: block;
+      height: 22px;
+      color: var(--gold);
+      font-size: 48px;
+      line-height: 0.55;
+    }
+
+    .copy {
+      color: var(--muted);
+      font-size: 11.5px;
+      line-height: 1.48;
+    }
+
+    .copy p + p {
+      margin-top: 8px;
+    }
+
+    .principle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      align-self: end;
+    }
+
+    .principle {
+      min-height: 94px;
+      border-radius: 20px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .principle.wide {
+      grid-column: 1 / -1;
+      min-height: 72px;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .principle b {
+      display: block;
+      color: var(--gold);
+      font-family: "Instrument Serif", serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .principle strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .principle span {
+      display: block;
+      color: var(--soft);
+      font-size: 9.7px;
+      line-height: 1.32;
+    }
+
+    .signature-card {
+      border-radius: 24px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .portrait {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      padding: 3px;
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .role {
+      margin-top: 4px;
+      color: var(--soft);
+      font-size: 8.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .manifesto-v2 {
+      height: 100%;
+      padding: 84px 26px 44px;
+      display: grid;
+      grid-template-rows: 168px 148px 1fr 108px;
+      gap: 12px;
+    }
+
+    .note-top-v2 {
+      display: grid;
+      grid-template-columns: 1fr 108px;
+      gap: 12px;
+    }
+
+    .note-title-v2 {
+      border-radius: 28px;
+      padding: 18px;
+      display: grid;
+      align-content: end;
+    }
+
+    .note-title-v2 .label {
+      color: var(--gold);
+      margin-bottom: 9px;
+    }
+
+    .note-title-v2 h2 {
+      font-size: 42px;
+      line-height: 0.9;
+    }
+
+    .candidate-card-v2 {
+      border-radius: 28px;
+      padding: 10px;
+      display: grid;
+      align-content: space-between;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .candidate-card-v2 .portrait {
+      width: 70px;
+      height: 70px;
+    }
+
+    .candidate-card-v2 strong {
+      color: var(--ink);
+      font-family: "Instrument Serif", serif;
+      font-size: 19px;
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .candidate-card-v2 span {
+      display: block;
+      margin-top: 3px;
+      color: var(--soft);
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .quote-card-v2 {
+      border-radius: 30px;
+      padding: 18px 20px;
+      display: grid;
+      align-content: center;
+    }
+
+    .quote-card-v2 p {
+      font-family: "Instrument Serif", serif;
+      font-size: 29px;
+      line-height: 1.02;
+      color: var(--ink);
+    }
+
+    .quote-card-v2 p::before {
+      content: '"';
+      display: block;
+      height: 18px;
+      color: var(--gold);
+      font-size: 44px;
+      line-height: 0.5;
+    }
+
+    .letter-panel-v2 {
+      border-radius: 28px;
+      padding: 18px;
+      display: grid;
+      align-content: center;
+    }
+
+    .letter-panel-v2 .copy {
+      font-size: 11.4px;
+      line-height: 1.48;
+    }
+
+    .principles-row-v2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .principle-v2 {
+      border-radius: 22px;
+      padding: 12px 10px;
+    }
+
+    .principle-v2 b {
+      display: block;
+      color: var(--gold);
+      font-family: "Instrument Serif", serif;
+      font-size: 26px;
+      line-height: 0.9;
+      font-weight: 400;
+      margin-bottom: 9px;
+    }
+
+    .principle-v2 strong {
+      display: block;
+      color: var(--ink);
+      font-size: 9.6px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .principle-v2 span {
+      color: var(--soft);
+      display: block;
+      font-size: 8.8px;
+      line-height: 1.28;
+    }
+
+    .system {
+      background:
+        linear-gradient(145deg, #0b1a30, #18344c 55%, #111b2d);
+    }
+
+    .system-layout {
+      height: 100%;
+      padding: 86px 26px 24px;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 11px;
+    }
+
+    .system-hero {
+      border-radius: 30px;
+      padding: 18px 20px;
+      min-height: 178px;
+      display: grid;
+      align-content: end;
+    }
+
+    .system-hero .label {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .system-hero p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 11.6px;
+      line-height: 1.46;
+    }
+
+    .flow {
+      border-radius: 24px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .flow-step {
+      min-height: 94px;
+      border-radius: 18px;
+      padding: 10px 7px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .flow-step b {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin: 0 auto 8px;
+      border-radius: 50%;
+      color: #0d2239;
+      background: linear-gradient(135deg, var(--gold), var(--mint));
+      font-family: "Instrument Serif", serif;
+      font-size: 19px;
+      font-weight: 400;
+    }
+
+    .flow-step strong {
+      display: block;
+      color: var(--ink);
+      font-size: 9.8px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .flow-step span {
+      display: block;
+      color: var(--soft);
+      font-size: 8.5px;
+      line-height: 1.2;
+    }
+
+    .change-stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .change {
+      border-radius: 22px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr 34px 1fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .change-side {
+      border-radius: 16px;
+      padding: 9px 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .change-side strong {
+      display: block;
+      color: var(--rose);
+      font-size: 9px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .change-side.after strong {
+      color: var(--mint);
+    }
+
+    .change-side span {
+      display: block;
+      color: var(--muted);
+      font-size: 9.5px;
+      line-height: 1.28;
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .impact-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .impact {
+      border-radius: 22px;
+      padding: 11px 10px;
+      min-height: 96px;
+    }
+
+    .impact b {
+      display: block;
+      color: var(--gold);
+      font-family: "Instrument Serif", serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .impact strong {
+      display: block;
+      color: var(--ink);
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .impact span {
+      color: var(--soft);
+      font-size: 8.8px;
+      line-height: 1.25;
+      display: block;
+    }
+
+    .programs {
+      background: #0f2339;
+    }
+
+    .programs .veil {
+      background:
+        linear-gradient(180deg, rgba(8, 20, 38, 0.32), rgba(8, 20, 38, 0.88)),
+        linear-gradient(135deg, rgba(12, 29, 51, 0.88), rgba(48, 89, 91, 0.34), rgba(14, 24, 40, 0.9));
+    }
+
+    .program-layout {
+      height: 100%;
+      padding: 92px 26px 30px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 14px;
+    }
+
+    .program-head {
+      border-radius: 30px;
+      min-height: 220px;
+      padding: 22px;
+      display: grid;
+      align-content: end;
+    }
+
+    .program-head .label {
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .program-head p {
+      margin-top: 12px;
+      width: 310px;
+      color: var(--muted);
+      font-size: 12.4px;
+      line-height: 1.56;
+    }
+
+    .program-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .program-card {
+      border-radius: 26px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .program-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: var(--gold);
+      font-family: "Instrument Serif", serif;
+      font-size: 25px;
+    }
+
+    .program-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 7px;
+    }
+
+    .program-title-row h3 {
+      font-family: "Instrument Serif", serif;
+      color: var(--ink);
+      font-size: 30px;
+      line-height: 0.92;
+      font-weight: 400;
+    }
+
+    .badge {
+      margin-left: auto;
+      min-width: 72px;
+      min-height: 25px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(255, 212, 138, 0.22);
+      border: 1px solid rgba(255, 212, 138, 0.34);
+      color: var(--gold);
+      font-size: 8.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .badge.mint {
+      color: var(--mint);
+      background: rgba(168, 230, 209, 0.17);
+      border-color: rgba(168, 230, 209, 0.3);
+    }
+
+    .badge.rose {
+      color: var(--rose);
+      background: rgba(255, 156, 146, 0.15);
+      border-color: rgba(255, 156, 146, 0.3);
+    }
+
+    .program-card p {
+      color: var(--muted);
+      font-size: 11.6px;
+      line-height: 1.46;
+    }
+
+    .note {
+      margin-top: 10px;
+      border-radius: 16px;
+      padding: 10px 11px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--soft);
+      font-size: 10.2px;
+      line-height: 1.38;
+    }
+
+    .note strong {
+      color: var(--mint);
+    }
+
+    .event-page,
+    .governance-page,
+    .media-page,
+    .calendar-doc-page,
+    .closing-page {
+      background:
+        linear-gradient(145deg, #0a1a2f, #17384c 58%, #0f1a2e);
+    }
+
+    .event-page .veil,
+    .governance-page .veil,
+    .media-page .veil,
+    .calendar-doc-page .veil,
+    .closing-page .veil {
+      background:
+        linear-gradient(180deg, rgba(8, 20, 38, 0.34), rgba(8, 20, 38, 0.9)),
+        linear-gradient(135deg, rgba(12, 30, 52, 0.86), rgba(49, 84, 86, 0.3), rgba(14, 24, 40, 0.9));
+    }
+
+    .event-layout,
+    .governance-layout,
+    .media-layout,
+    .calendar-layout,
+    .closing-layout {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 86px 26px 30px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .event-layout {
+      grid-template-rows: auto 1fr;
+    }
+
+    .mini-hero {
+      border-radius: 30px;
+      padding: 18px 20px;
+      min-height: 148px;
+      display: grid;
+      align-content: end;
+    }
+
+    .mini-hero.compact {
+      min-height: 132px;
+    }
+
+    .mini-hero .label {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .mini-hero h2 {
+      font-size: 45px;
+      line-height: 0.9;
+    }
+
+    .mini-hero p {
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 11.6px;
+      line-height: 1.45;
+      max-width: 320px;
+    }
+
+    .event-card-list {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .event-tile {
+      border-radius: 24px;
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .event-tile.slim {
+      min-height: 124px;
+    }
+
+    .event-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: var(--gold);
+      font-family: "Instrument Serif", serif;
+      font-size: 23px;
+      line-height: 1;
+    }
+
+    .event-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+
+    .event-head h3 {
+      color: var(--ink);
+      font-family: "Instrument Serif", serif;
+      font-size: 27px;
+      line-height: 0.94;
+      font-weight: 400;
+    }
+
+    .event-tile p {
+      color: var(--muted);
+      font-size: 10.9px;
+      line-height: 1.42;
+    }
+
+    .event-upgrade {
+      margin-top: 8px;
+      border-radius: 15px;
+      padding: 8px 9px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--soft);
+      font-size: 9.8px;
+      line-height: 1.33;
+    }
+
+    .event-upgrade strong {
+      color: var(--mint);
+    }
+
+    .chip-cloud {
+      border-radius: 24px;
+      padding: 14px;
+    }
+
+    .chip-cloud .label {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .chip-list span {
+      min-height: 27px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--muted);
+      font-size: 9.7px;
+      font-weight: 700;
+    }
+
+    .governance-layout {
+      grid-template-rows: auto auto auto 1fr auto;
+    }
+
+    .governance-intro {
+      border-radius: 24px;
+      padding: 15px 17px;
+      color: var(--muted);
+      font-size: 11.6px;
+      line-height: 1.5;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .process-card,
+    .role-card-glass,
+    .goal-card,
+    .platform-glass,
+    .pillar-card,
+    .calendar-quarter,
+    .calendar-goal,
+    .contact-card {
+      border-radius: 22px;
+      padding: 13px;
+    }
+
+    .process-card b,
+    .goal-card b,
+    .platform-glass b,
+    .calendar-goal b {
+      display: block;
+      color: var(--gold);
+      font-family: "Instrument Serif", serif;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 0.9;
+      margin-bottom: 9px;
+    }
+
+    .process-card strong,
+    .role-card-glass strong,
+    .goal-card strong,
+    .platform-glass strong,
+    .pillar-card strong,
+    .calendar-quarter strong,
+    .calendar-goal strong,
+    .contact-card strong {
+      display: block;
+      color: var(--ink);
+      font-size: 10px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .process-card span,
+    .role-card-glass span,
+    .goal-card span,
+    .platform-glass span,
+    .pillar-card span,
+    .calendar-quarter span,
+    .calendar-goal span,
+    .contact-card span {
+      display: block;
+      color: var(--soft);
+      font-size: 9.3px;
+      line-height: 1.32;
+    }
+
+    .role-grid-glass {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .collab-card,
+    .proposal-card,
+    .bts-card,
+    .template-card,
+    .notice-card {
+      border-radius: 24px;
+      padding: 14px 15px;
+    }
+
+    .collab-card .label,
+    .proposal-card .label,
+    .bts-card .label,
+    .template-card .label,
+    .notice-card .label {
+      color: var(--gold);
+      margin-bottom: 7px;
+    }
+
+    .collab-card p,
+    .proposal-card p,
+    .bts-card p,
+    .template-card p,
+    .notice-card p {
+      color: var(--muted);
+      font-size: 10.8px;
+      line-height: 1.42;
+    }
+
+    .proposal-list {
+      display: grid;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .proposal-list span {
+      color: var(--soft);
+      font-size: 10px;
+      line-height: 1.28;
+    }
+
+    .media-layout {
+      grid-template-rows: auto auto auto auto 1fr;
+    }
+
+    .platform-row-glass {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .platform-glass {
+      min-height: 128px;
+    }
+
+    .platform-glass em {
+      display: block;
+      color: var(--mint);
+      font-family: "Instrument Serif", serif;
+      font-size: 25px;
+      line-height: 0.9;
+      font-style: normal;
+      margin-top: 9px;
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+    }
+
+    .pillar-card {
+      min-height: 58px;
+      padding: 10px 8px;
+    }
+
+    .calendar-layout {
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    .calendar-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .calendar-quarter {
+      padding: 12px;
+    }
+
+    .calendar-quarter strong {
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+
+    .calendar-quarter .phase {
+      color: var(--mint);
+      font-size: 9px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .calendar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .calendar-tags span {
+      min-height: 24px;
+      border-radius: 999px;
+      padding: 0 9px;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--soft);
+      font-size: 8.8px;
+      font-weight: 700;
+    }
+
+    .calendar-goals {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+    }
+
+    .calendar-goal {
+      padding: 10px 8px;
+    }
+
+    .calendar-goal b {
+      font-size: 23px;
+      margin-bottom: 6px;
+    }
+
+    .calendar-goal span {
+      font-size: 8.4px;
+    }
+
+    .closing-layout {
+      grid-template-rows: 1fr auto auto;
+      padding-top: 30px;
+    }
+
+    .closing-hero {
+      align-self: center;
+      border-radius: 34px;
+      padding: 28px 24px;
+    }
+
+    .closing-hero .label {
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .closing-hero h2 {
+      font-size: 62px;
+      line-height: 0.88;
+    }
+
+    .closing-hero p {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12.3px;
+      line-height: 1.55;
+    }
+
+    .team-photo-placeholder {
+      min-height: 116px;
+      border-radius: 28px;
+      padding: 18px;
+      display: grid;
+      align-content: center;
+      text-align: center;
+    }
+
+    .team-photo-placeholder b {
+      color: var(--mint);
+      font-family: "Instrument Serif", serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 0.9;
+      margin-bottom: 9px;
+    }
+
+    .team-photo-placeholder span {
+      color: var(--soft);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .contact-card {
+      padding: 12px;
+    }
+
+    @page {
+      size: 430px 932px;
+      margin: 0;
+    }
+
+    @media (max-width: 430px) {
+      .document {
+        padding: 0;
+      }
+
+      .page {
+        width: 100vw;
+        margin-bottom: 0;
+        box-shadow: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .document {
+        width: 430px;
+        padding: 0;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="document">
+    <section class="page cover" aria-label="Cover">
+      <div class="bg">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS7kCpkPGlzzHVh0l14-9gck4jVRcp66WK-zUzlcQXU01auPNSMiDmfedHYtEj1QkAVATLm39yLJBeOwWyjyXoMpPEnmTuSMANB0a2xZHhXykfnYWA1LSgvCeeOI2xZq048sNv2orVf43XjRdQHiuY8-wn1POfJW519VAPhrD2FhtcgxU6ZMupnumHyMZ9-Yqm-dCm9VK0qmjldwcS5o1i0MGn5-RJyjNqA9DbljfbY_7h_vdTwra61gTtSSF76UTizeQFbjrJOKfI" alt="Students collaborating during a campus discussion" />
+      </div>
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <div class="cover-v2">
+        <header class="cover-nav-v2">
+          <div class="cover-logo-card glass">
+            <b>A</b>
+            <span>AASHA</span>
+          </div>
+          <div class="cover-year-card glass">
+            <span class="label">IPM Social Impact Committee</span>
+            <strong>2026 - 27</strong>
+          </div>
+        </header>
+
+        <section class="cover-title-zone">
+          <div class="hero-label label">Vision Document</div>
+          <h1>Bigger.<span class="outline">Bolder.</span><em>Together.</em></h1>
+          <p class="cover-lede-panel glass dark">A sharper roadmap for deeper community, stronger accountability, and social impact that people can feel across campus and beyond.</p>
+        </section>
+
+        <footer class="cover-bottom-v2">
+          <div class="cover-meta-card glass dark">
+            <span class="label">Presented by</span>
+            <strong>Arjav Jain</strong>
+          </div>
+          <div class="cover-meta-card accent glass">
+            <span class="label">Term 4</span>
+            <b>12</b>
+            <span class="label">Total pages</span>
+          </div>
+        </footer>
+      </div>
+      <span class="page-no">01</span>
+    </section>
+
+    <section class="page manifesto" aria-label="Candidate manifesto">
+      <div class="bg blur-bg">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS7kCpkPGlzzHVh0l14-9gck4jVRcp66WK-zUzlcQXU01auPNSMiDmfedHYtEj1QkAVATLm39yLJBeOwWyjyXoMpPEnmTuSMANB0a2xZHhXykfnYWA1LSgvCeeOI2xZq048sNv2orVf43XjRdQHiuY8-wn1POfJW519VAPhrD2FhtcgxU6ZMupnumHyMZ9-Yqm-dCm9VK0qmjldwcS5o1i0MGn5-RJyjNqA9DbljfbY_7h_vdTwra61gTtSSF76UTizeQFbjrJOKfI" alt="Soft campus collaboration background" />
+      </div>
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">01 - Candidate Note</span>
+        <span class="label">AASHA</span>
+      </nav>
+
+      <div class="manifesto-v2">
+        <div class="note-top-v2">
+          <header class="note-title-v2 glass">
+            <div class="label">A Note from the Candidate</div>
+            <h2>Why AASHA<br /><em>matters</em></h2>
+          </header>
+          <aside class="candidate-card-v2 glass">
+            <div class="portrait">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL7LNT8yXNkIOGILZtLhWvwr_M6Gmr6cmtpUZ7pXd54tvlqtJcd6nXJIf0MKzenK-Q-Nr14ZimmIdUlxuMR7nT9bDxj6nP_qEPlZzXZ3fFLFR74ISKGwnIPdCSAqFlAfCi-tLfcTpUZzgEBcoz6gTKMNF7muWq8QHqL8JZO3BK7pJYr-iydmqlSfGOXUnjLlxNw29o32Pb4iFFMFr91ssQJsBQjJ3RkTKRDyzsR7CaYDh9IXUt2u5HtJ-_yH-m6YzjmoGsrgciyWhN" alt="Portrait of the AASHA candidate" />
+            </div>
+            <div>
+              <strong>Arjav Jain</strong>
+              <span>Candidate</span>
+            </div>
+          </aside>
+        </div>
+
+        <section class="quote-card-v2 glass dark">
+          <p>AASHA has always been the conscience of our campus.</p>
+        </section>
+
+        <section class="letter-panel-v2 glass dark">
+          <div class="copy">
+            <p>It is one of those rare committees where the work actually matters. But I believe we can do even more. After understanding AASHA's journey, events, reach, and challenges, I see potential waiting to be fully unlocked.</p>
+            <p>My focus for the year ahead is simple: make AASHA more intentional. Every event should have a clear purpose, a measurable outcome, and enough structure to earn the approvals, timelines, and trust it needs.</p>
+          </div>
+        </section>
+
+        <section class="principles-row-v2">
+          <article class="principle-v2 glass">
+            <b>01</b>
+            <strong>Purpose</strong>
+            <span>Every initiative begins with a real reason to exist.</span>
+          </article>
+          <article class="principle-v2 glass">
+            <b>02</b>
+            <strong>Structure</strong>
+            <span>Roles, timelines, and proposals stay visible.</span>
+          </article>
+          <article class="principle-v2 glass">
+            <b>03</b>
+            <strong>Community</strong>
+            <span>The work should be felt inside campus and beyond it.</span>
+          </article>
+        </section>
+      </div>
+      <span class="page-no">02</span>
+    </section>
+
+    <section class="page system" aria-label="Operating system">
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">02 - Operating Model</span>
+        <span class="label">Accountability first</span>
+      </nav>
+
+      <div class="system-layout">
+        <header class="system-hero glass dark">
+          <div class="label">The New Format</div>
+          <h2>From events<br /><em>to institutions</em></h2>
+          <p>Every idea moves through a simple operating system: plan early, document well, execute cleanly, and learn visibly.</p>
+        </header>
+
+        <section class="flow glass">
+          <article class="flow-step">
+            <b>01</b>
+            <strong>Propose</strong>
+            <span>Problem and event brief</span>
+          </article>
+          <article class="flow-step">
+            <b>02</b>
+            <strong>Approve</strong>
+            <span>Timeline, budget, permissions</span>
+          </article>
+          <article class="flow-step">
+            <b>03</b>
+            <strong>Execute</strong>
+            <span>Owners and communication</span>
+          </article>
+          <article class="flow-step">
+            <b>04</b>
+            <strong>Reflect</strong>
+            <span>Outcomes and learnings</span>
+          </article>
+        </section>
+
+        <section class="change-stack">
+          <article class="change glass">
+            <div class="change-side">
+              <strong>Earlier</strong>
+              <span>Events planned close to execution date.</span>
+            </div>
+            <div class="arrow">-></div>
+            <div class="change-side after">
+              <strong>Now</strong>
+              <span>Tentative calendar set at the start of term.</span>
+            </div>
+          </article>
+          <article class="change glass">
+            <div class="change-side">
+              <strong>Earlier</strong>
+              <span>Social media inconsistent and reactive.</span>
+            </div>
+            <div class="arrow">-></div>
+            <div class="change-side after">
+              <strong>Now</strong>
+              <span>Platform strategy for Instagram, YouTube, and LinkedIn.</span>
+            </div>
+          </article>
+          <article class="change glass">
+            <div class="change-side">
+              <strong>Earlier</strong>
+              <span>Limited NGO and external partnerships.</span>
+            </div>
+            <div class="arrow">-></div>
+            <div class="change-side after">
+              <strong>Now</strong>
+              <span>Live project opportunity through NGO collaboration.</span>
+            </div>
+          </article>
+
+          <div class="impact-row">
+            <article class="impact glass">
+              <b>01</b>
+              <strong>Impact</strong>
+              <span>Events with measurable outcomes.</span>
+            </article>
+            <article class="impact glass">
+              <b>02</b>
+              <strong>Structure</strong>
+              <span>Clear roles, timelines, and approvals.</span>
+            </article>
+            <article class="impact glass">
+              <b>03</b>
+              <strong>Trust</strong>
+              <span>Credibility through consistent delivery.</span>
+            </article>
+          </div>
+        </section>
+      </div>
+      <span class="page-no">03</span>
+    </section>
+
+    <section class="page programs" aria-label="Internal community programs">
+      <div class="bg">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6DbJAehITcnKrZKenGeX6DYADD3l6XoiMWFHXfX7yHwytMf4cAioAkqGuy814FaF4uLufpupqoAkfBP2JhUI4bkA8fBC8RHmxicAw9WqQ79taWE5bIxkQK1AZauhhD2Kn-7DmnuHo3xiW_GjGlEJpA99o4lORs017MjhGIun9D75jBvOjsf8dugBU4nXSFVG6VFHjOzoXkh8SnqtkG2_cp3iYTLoiBVN5Vva5lU46G-rkUh9waB2gm_hpFczmEUK0dTfQCLDCwF1t" alt="Students participating in a campus community activity" />
+      </div>
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">03 - Internal Community</span>
+        <span class="label">For our people</span>
+      </nav>
+
+      <div class="program-layout">
+        <header class="program-head glass dark">
+          <div class="label">Community Lab</div>
+          <h2>For <em>Our</em><br />People</h2>
+          <p>Programs that make students feel welcomed, connected, and guided through the real rhythms of campus life.</p>
+        </header>
+
+        <section class="program-list">
+          <article class="program-card glass dark">
+            <div class="program-number">01</div>
+            <div>
+              <div class="program-title-row">
+                <h3>El Amigo</h3>
+                <span class="badge">Revamped</span>
+              </div>
+              <p>A buddy-style peer connection initiative pairing students across batches to build mentorship and belonging from day one.</p>
+              <div class="note"><strong>New this year:</strong> structured check-in milestones across the semester so connections grow beyond the first meeting.</div>
+            </div>
+          </article>
+
+          <article class="program-card glass dark">
+            <div class="program-number">02</div>
+            <div>
+              <div class="program-title-row">
+                <h3>Buddy Project</h3>
+                <span class="badge mint">New</span>
+              </div>
+              <p>A relaxed, game-based interaction when the new batch arrives, helping juniors meet seniors without the stiffness of formal orientation.</p>
+              <div class="note"><strong>Design shift:</strong> interest-based grouping by hobbies, hometowns, and career tracks to make conversations natural.</div>
+            </div>
+          </article>
+
+          <article class="program-card glass dark">
+            <div class="program-number">03</div>
+            <div>
+              <div class="program-title-row">
+                <h3>Swagatam</h3>
+                <span class="badge rose">Continuing</span>
+              </div>
+              <p>The flagship welcome initiative for incoming batches, helping students feel seen, supported, and part of something meaningful.</p>
+              <div class="note"><strong>Addition:</strong> an informal Life at IPM session with honest senior-led conversations about campus culture.</div>
+            </div>
+          </article>
+        </section>
+      </div>
+      <span class="page-no">04</span>
+    </section>
+
+    <section class="page event-page" aria-label="Internal community continued">
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">04 - Internal Community</span>
+        <span class="label">Growing together</span>
+      </nav>
+
+      <div class="event-layout">
+        <header class="mini-hero glass dark">
+          <div class="label">Internal Community continued</div>
+          <h2>Growing<br /><em>Together</em></h2>
+          <p>More spaces for students to think, compete, give, and build meaningful connections with causes beyond themselves.</p>
+        </header>
+
+        <section class="event-card-list">
+          <article class="event-tile glass dark">
+            <div class="event-num">04</div>
+            <div>
+              <div class="event-head">
+                <h3>Case Competitions</h3>
+                <span class="badge">Revamped</span>
+              </div>
+              <p>Social-impact case competitions giving students a platform to think critically about real-world problems. Impetus remains the anchor competition on policy and sustainability.</p>
+              <div class="event-upgrade"><strong>New this year:</strong> explore collaboration with Indore Municipal Corporation for bigger prize pools, wider participation, and real civic problem statements.</div>
+            </div>
+          </article>
+
+          <article class="event-tile glass dark">
+            <div class="event-num">05</div>
+            <div>
+              <div class="event-head">
+                <h3>STEM Quiz</h3>
+                <span class="badge mint">New</span>
+              </div>
+              <p>A campus-wide quiz across social sciences, technology, economics, and mathematics to encourage interdisciplinary thinking.</p>
+              <div class="event-upgrade"><strong>What's different:</strong> a Social Impact Round where teams solve real-world case problems under time pressure.</div>
+            </div>
+          </article>
+
+          <article class="event-tile glass dark">
+            <div class="event-num">06</div>
+            <div>
+              <div class="event-head">
+                <h3>NGO Donation Drive</h3>
+                <span class="badge mint">New</span>
+              </div>
+              <p>A campus-wide drive for a partnered NGO, collecting essentials, funds, or time while opening a live project pathway for interested students.</p>
+              <div class="event-upgrade"><strong>The bigger idea:</strong> make AASHA a bridge between IPM students and NGOs looking for young talent.</div>
+            </div>
+          </article>
+        </section>
+      </div>
+      <span class="page-no">05</span>
+    </section>
+
+    <section class="page event-page" aria-label="Internal creativity and action">
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">05 - Internal Community</span>
+        <span class="label">Creativity and action</span>
+      </nav>
+
+      <div class="event-layout">
+        <header class="mini-hero compact glass dark">
+          <div class="label">Internal Community continued</div>
+          <h2>Creativity<br /><em>and Action</em></h2>
+          <p>Events that turn expression, fitness, and campus energy into visible social purpose.</p>
+        </header>
+
+        <section class="event-card-list">
+          <article class="event-tile glass dark">
+            <div class="event-num">07</div>
+            <div>
+              <div class="event-head">
+                <h3>Impact Palette</h3>
+                <span class="badge">Revamped</span>
+              </div>
+              <p>Art meets social impact through a creative expression event where students use visual storytelling to communicate social issues they care about.</p>
+              <div class="event-upgrade"><strong>New this year:</strong> selected pieces become a permanent mural or hallway exhibition so the impact remains visible year-round.</div>
+            </div>
+          </article>
+
+          <article class="event-tile glass dark">
+            <div class="event-num">08</div>
+            <div>
+              <div class="event-head">
+                <h3>Runsday Marathon</h3>
+                <span class="badge rose">Continuing</span>
+              </div>
+              <p>A campus-wide run combining fitness with social purpose and collective responsibility, already one of AASHA's most loved recurring events.</p>
+              <div class="event-upgrade"><strong>Upgrade:</strong> partner with an NGO so every kilometre run translates into a donation or contribution.</div>
+            </div>
+          </article>
+
+          <aside class="chip-cloud glass">
+            <div class="label">Internal events at a glance</div>
+            <div class="chip-list">
+              <span>El Amigo</span>
+              <span>Buddy Project</span>
+              <span>Swagatam</span>
+              <span>Case Competitions</span>
+              <span>STEM Quiz</span>
+              <span>NGO Donation Drive</span>
+              <span>Impact Palette</span>
+              <span>Runsday Marathon</span>
+            </div>
+          </aside>
+        </section>
+      </div>
+      <span class="page-no">06</span>
+    </section>
+
+    <section class="page event-page" aria-label="External community">
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">06 - External Community</span>
+        <span class="label">Beyond campus</span>
+      </nav>
+
+      <div class="event-layout">
+        <header class="mini-hero glass dark">
+          <div class="label">External Community</div>
+          <h2>Reaching<br /><em>Beyond Us</em></h2>
+          <p>Initiatives that extend AASHA's impact to the communities, individuals, and causes that need us most.</p>
+        </header>
+
+        <section class="event-card-list">
+          <article class="event-tile glass dark">
+            <div class="event-num">01</div>
+            <div>
+              <div class="event-head">
+                <h3>Aabhar Utsav</h3>
+                <span class="badge">Revamped</span>
+              </div>
+              <p>A heartfelt evening celebrating the housekeeping and security workers who keep campus running every day.</p>
+              <div class="event-upgrade"><strong>New this year:</strong> Faces of IPM, a photo documentation series sharing worker stories on AASHA platforms.</div>
+            </div>
+          </article>
+
+          <article class="event-tile glass dark">
+            <div class="event-num">02</div>
+            <div>
+              <div class="event-head">
+                <h3>Samvedna</h3>
+                <span class="badge rose">Continuing</span>
+              </div>
+              <p>Visits to schools and centres for differently-abled children, creating moments of joy, play, and genuine human connection.</p>
+              <div class="event-upgrade"><strong>Upgrade:</strong> increase to two visits per semester with local NGO support for better-tailored activities.</div>
+            </div>
+          </article>
+
+          <article class="event-tile glass dark">
+            <div class="event-num">03</div>
+            <div>
+              <div class="event-head">
+                <h3>Panacea</h3>
+                <span class="badge">Revamped</span>
+              </div>
+              <p>An online problem-solving challenge where students propose socially conscious solutions to India-facing issues.</p>
+              <div class="event-upgrade"><strong>New this year:</strong> top solutions presented to a faculty jury, with selected ideas considered for NGO collaboration.</div>
+            </div>
+          </article>
+        </section>
+      </div>
+      <span class="page-no">07</span>
+    </section>
+
+    <section class="page event-page" aria-label="External community continued">
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">07 - External Community</span>
+        <span class="label">Every person matters</span>
+      </nav>
+
+      <div class="event-layout">
+        <header class="mini-hero compact glass dark">
+          <div class="label">External Community continued</div>
+          <h2>Every <em>Person</em><br />Matters</h2>
+          <p>Simple, consistent gestures can become lasting institutional habits when they are planned well.</p>
+        </header>
+
+        <section class="event-card-list">
+          <article class="event-tile glass dark">
+            <div class="event-num">04</div>
+            <div>
+              <div class="event-head">
+                <h3>Guard Gratitude Day</h3>
+                <span class="badge mint">New</span>
+              </div>
+              <p>A meaningful initiative for the security guards who watch over campus day and night, pairing refreshments with handwritten notes of thanks.</p>
+              <div class="event-upgrade"><strong>Measurable change:</strong> document reach across campus posts and explore making this a fixed annual AASHA event.</div>
+            </div>
+          </article>
+
+          <article class="event-tile glass dark">
+            <div class="event-num">05</div>
+            <div>
+              <div class="event-head">
+                <h3>NIOS Outreach</h3>
+                <span class="badge">Restarted</span>
+              </div>
+              <p>Restart the initiative where seniors tutor elderly community members preparing for Class 10 examinations through NIOS.</p>
+              <div class="event-upgrade"><strong>New this year:</strong> monthly learner check-ins, volunteer sign-ups, and a celebration when learners clear exams.</div>
+            </div>
+          </article>
+
+          <article class="event-tile glass dark">
+            <div class="event-num">06</div>
+            <div>
+              <div class="event-head">
+                <h3>AASHA Broadcast</h3>
+                <span class="badge mint">New</span>
+              </div>
+              <p>A WhatsApp broadcast channel for upcoming events, volunteer opportunities, and social causes worth supporting.</p>
+              <div class="event-upgrade"><strong>Why it matters:</strong> direct communication means more people show up and more hands join the work.</div>
+            </div>
+          </article>
+        </section>
+      </div>
+      <span class="page-no">08</span>
+    </section>
+
+    <section class="page governance-page" aria-label="Governance and accountability">
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">08 - Structure</span>
+        <span class="label">How we operate</span>
+      </nav>
+
+      <div class="governance-layout">
+        <header class="mini-hero compact glass dark">
+          <div class="label">Structure and Accountability</div>
+          <h2>How We<br /><em>Operate</em></h2>
+          <p>A well-run committee earns the right to do bigger things. The goal is a process that builds trust from the inside out.</p>
+        </header>
+
+        <section class="process-grid">
+          <article class="process-card glass">
+            <b>01</b>
+            <strong>Written proposal</strong>
+            <span>Event objective, audience, budget, venue, resources, and timeline.</span>
+          </article>
+          <article class="process-card glass">
+            <b>02</b>
+            <strong>Review and approval</strong>
+            <span>Feasibility, permissions, risk checks, and final sign-off.</span>
+          </article>
+          <article class="process-card glass">
+            <b>03</b>
+            <strong>Execution</strong>
+            <span>Owners, checklist, communications, documentation, and reflection.</span>
+          </article>
+        </section>
+
+        <section class="role-grid-glass">
+          <article class="role-card-glass glass dark">
+            <strong>Chair / Secretary</strong>
+            <span>Strategy, external representation, and final sign-offs.</span>
+          </article>
+          <article class="role-card-glass glass dark">
+            <strong>Events Lead</strong>
+            <span>End-to-end planning, logistics, and execution.</span>
+          </article>
+          <article class="role-card-glass glass dark">
+            <strong>Outreach Lead</strong>
+            <span>NGO coordination and community engagement.</span>
+          </article>
+          <article class="role-card-glass glass dark">
+            <strong>Content and Docs</strong>
+            <span>Social media, documentation, and committee visibility.</span>
+          </article>
+        </section>
+
+        <article class="collab-card glass">
+          <div class="label">Collaboration goals</div>
+          <p>Partner with at least two student committees, forge three or more NGO or organisation partnerships, and invite faculty as jury members or advisors for Panacea and Case Competitions.</p>
+        </article>
+
+        <article class="proposal-card glass dark">
+          <div class="label">Proposal checklist</div>
+          <div class="proposal-list">
+            <span>Event name, objective, and intended audience</span>
+            <span>Estimated budget, venue, and resources needed</span>
+            <span>Timeline and key milestones before execution</span>
+          </div>
+        </article>
+      </div>
+      <span class="page-no">09</span>
+    </section>
+
+    <section class="page media-page" aria-label="Digital presence">
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">09 - Digital Presence</span>
+        <span class="label">Tell our story</span>
+      </nav>
+
+      <div class="media-layout">
+        <header class="mini-hero compact glass dark">
+          <div class="label">Digital Presence</div>
+          <h2>Tell Our<br /><em>Story Better</em></h2>
+          <p>Social media is not a checkbox. It is how AASHA builds identity, reach, and credibility.</p>
+        </header>
+
+        <section class="platform-row-glass">
+          <article class="platform-glass glass">
+            <strong>Instagram</strong>
+            <span>Reels, BTS, event coverage, campaigns</span>
+            <em>3x</em>
+            <span>Reach growth target</span>
+          </article>
+          <article class="platform-glass glass">
+            <strong>YouTube</strong>
+            <span>Event films, volunteer stories, mini-docs</span>
+            <em>10+</em>
+            <span>Videos this year</span>
+          </article>
+          <article class="platform-glass glass">
+            <strong>LinkedIn</strong>
+            <span>Write-ups, thought leadership, recaps</span>
+            <em>500+</em>
+            <span>Average impressions</span>
+          </article>
+        </section>
+
+        <section class="pillar-grid">
+          <article class="pillar-card glass dark"><strong>BTS</strong><span>Event making-of stories</span></article>
+          <article class="pillar-card glass dark"><strong>Stories</strong><span>Worker and volunteer voices</span></article>
+          <article class="pillar-card glass dark"><strong>Facts</strong><span>Social impact explainers</span></article>
+          <article class="pillar-card glass dark"><strong>Photos</strong><span>Event coverage and recaps</span></article>
+          <article class="pillar-card glass dark"><strong>Runs</strong><span>Marathon day content</span></article>
+          <article class="pillar-card glass dark"><strong>Causes</strong><span>Donation and NGO updates</span></article>
+          <article class="pillar-card glass dark"><strong>People</strong><span>Volunteer spotlights</span></article>
+          <article class="pillar-card glass dark"><strong>Alerts</strong><span>Broadcast updates</span></article>
+        </section>
+
+        <article class="bts-card glass">
+          <div class="label">BTS content strategy</div>
+          <p>Each event gets a dedicated content owner capturing the making-of story, increasing authenticity and engagement across platforms.</p>
+        </article>
+
+        <article class="template-card glass dark">
+          <div class="label">Canva templates and consistency</div>
+          <p>A shared Canva library will hold AASHA templates, colours, and post formats so every piece of content stays polished and on-brand.</p>
+        </article>
+      </div>
+      <span class="page-no">10</span>
+    </section>
+
+    <section class="page calendar-doc-page" aria-label="Tentative calendar">
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <nav class="top-pill glass">
+        <span class="label">10 - Roadmap</span>
+        <span class="label">Tentative calendar</span>
+      </nav>
+
+      <div class="calendar-layout">
+        <header class="mini-hero compact glass dark">
+          <div class="label">Roadmap</div>
+          <h2>Tentative<br /><em>Calendar</em></h2>
+          <p>Dates, formats, and feasibility will be finalised after committee onboarding, schedule clarity, and administrative approval.</p>
+        </header>
+
+        <article class="notice-card glass">
+          <div class="label">Please note</div>
+          <p>This calendar is tentative and subject to approval once resources, college schedules, and guidelines are clearer.</p>
+        </article>
+
+        <section class="calendar-list">
+          <article class="calendar-quarter glass dark">
+            <strong>July - August</strong>
+            <div class="phase">Orientation phase</div>
+            <div class="calendar-tags">
+              <span>Swagatam</span><span>Buddy Project</span><span>El Amigo</span><span>Onboarding</span><span>Broadcast Launch</span>
+            </div>
+          </article>
+          <article class="calendar-quarter glass dark">
+            <strong>September - October</strong>
+            <div class="phase">Build phase</div>
+            <div class="calendar-tags">
+              <span>IMC Case Comp</span><span>Panacea</span><span>STEM Quiz</span><span>Samvedna 1</span><span>Donation Drive</span>
+            </div>
+          </article>
+          <article class="calendar-quarter glass dark">
+            <strong>November - December</strong>
+            <div class="phase">Impact phase</div>
+            <div class="calendar-tags">
+              <span>Aabhar Utsav</span><span>Guard Gratitude</span><span>Impact Palette</span><span>Samvedna 2</span>
+            </div>
+          </article>
+          <article class="calendar-quarter glass dark">
+            <strong>January - March</strong>
+            <div class="phase">Celebrate phase</div>
+            <div class="calendar-tags">
+              <span>Runsday Marathon</span><span>NIOS Outreach</span><span>Case Competition 2</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="calendar-goals">
+          <article class="calendar-goal glass"><b>12+</b><strong>Events</strong><span>Across the year</span></article>
+          <article class="calendar-goal glass"><b>600+</b><strong>Reach</strong><span>Students and community members</span></article>
+          <article class="calendar-goal glass"><b>3+</b><strong>Partners</strong><span>External NGO links</span></article>
+          <article class="calendar-goal glass"><b>100%</b><strong>Proposals</strong><span>Written before execution</span></article>
+        </section>
+      </div>
+      <span class="page-no">11</span>
+    </section>
+
+    <section class="page closing-page" aria-label="Back cover">
+      <div class="bg blur-bg">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6DbJAehITcnKrZKenGeX6DYADD3l6XoiMWFHXfX7yHwytMf4cAioAkqGuy814FaF4uLufpupqoAkfBP2JhUI4bkA8fBC8RHmxicAw9WqQ79taWE5bIxkQK1AZauhhD2Kn-7DmnuHo3xiW_GjGlEJpA99o4lORs017MjhGIun9D75jBvOjsf8dugBU4nXSFVG6VFHjOzoXkh8SnqtkG2_cp3iYTLoiBVN5Vva5lU46G-rkUh9waB2gm_hpFczmEUK0dTfQCLDCwF1t" alt="Soft team background" />
+      </div>
+      <div class="veil"></div>
+      <div class="mesh"></div>
+
+      <div class="closing-layout">
+        <section class="closing-hero glass dark">
+          <div class="label">AASHA - IPM Social Impact Committee</div>
+          <h2>Hope is a<br /><em>practice.</em></h2>
+          <p>Thank you for reading. This document is a commitment to our community, our campus, and the belief that students can change things when they work with intention.</p>
+        </section>
+
+        <div class="team-photo-placeholder glass">
+          <b>AASHA</b>
+          <span>Team photo - AASHA 2026-27</span>
+        </div>
+
+        <section class="contact-grid">
+          <article class="contact-card glass dark">
+            <strong>Presented by</strong>
+            <span>Arjav Jain</span>
+          </article>
+          <article class="contact-card glass dark">
+            <strong>Phone</strong>
+            <span>80850 81834</span>
+          </article>
+          <article class="contact-card glass dark">
+            <strong>Instagram</strong>
+            <span>ipm_social_impact_committee</span>
+          </article>
+          <article class="contact-card glass dark">
+            <strong>LinkedIn</strong>
+            <span>IPM Social Impact Committee - AASHA</span>
+          </article>
+        </section>
+      </div>
+      <span class="page-no">12</span>
+    </section>
+  </main>
+</body>
+</html>
